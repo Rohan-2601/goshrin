@@ -14,8 +14,18 @@ export default function ApplicationModal({ open, onClose, type = 'brand' }) {
   if (!open) return null;
 
   const isBrand = type === 'brand';
-  const title = isBrand ? 'Join as a Brand' : 'Join Creator Club';
-  const handleLabel = isBrand ? 'Brand Name' : 'Social Media Handle (IG/YouTube/X)';
+  const isUser = type === 'user';
+  
+  let title = 'Join Creator Club';
+  let handleLabel = 'Social Media Handle (IG/YouTube/X)';
+
+  if (isBrand) {
+    title = 'Join as a Brand';
+    handleLabel = 'Brand Name';
+  } else if (isUser) {
+    title = 'Get Early Access';
+    handleLabel = ''; // No handle needed for users
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -122,17 +132,19 @@ export default function ApplicationModal({ open, onClose, type = 'brand' }) {
                  </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">{handleLabel}</label>
-                <input 
-                  type="text" 
-                  required
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 outline-none transition-all bg-slate-50 focus:bg-white"
-                  placeholder={isBrand ? "My Awesome Brand" : "@myusername"}
-                  value={formData.handle}
-                  onChange={(e) => setFormData({...formData, handle: e.target.value})}
-                />
-              </div>
+              {!isUser && (
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">{handleLabel}</label>
+                  <input 
+                    type="text" 
+                    required={!isUser}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 outline-none transition-all bg-slate-50 focus:bg-white"
+                    placeholder={isBrand ? "My Awesome Brand" : "@myusername"}
+                    value={formData.handle}
+                    onChange={(e) => setFormData({...formData, handle: e.target.value})}
+                  />
+                </div>
+              )}
 
               <button 
                 type="submit" 

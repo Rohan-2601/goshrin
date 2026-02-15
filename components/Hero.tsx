@@ -6,6 +6,7 @@ import { useState } from "react";
 import ApplicationModal from "./ApplicationModal";
 
 export default function Hero() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [modalType, setModalType] = useState('brand');
 
@@ -13,7 +14,6 @@ export default function Hero() {
     setModalType(type);
     setOpenModal(true);
   };
-
 
   return (
     <section className="relative min-h-screen bg-slate-50 overflow-hidden selection:bg-violet-100 selection:text-violet-900">
@@ -24,7 +24,7 @@ export default function Hero() {
 
       {/* NAV HEADER */}
       <nav className="absolute top-0 w-full z-50 flex justify-between items-center px-6 py-6 md:px-12 backdrop-blur-[2px]">
-        <Link href="/" className="text-2xl font-bold tracking-tighter flex items-center gap-1">
+        <Link href="/" className="text-2xl font-bold tracking-tighter flex items-center gap-1 z-50">
           <span className="bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">GoShrin</span>
           <div className="w-1.5 h-1.5 rounded-full bg-violet-500 mb-1"></div>
         </Link>
@@ -50,23 +50,63 @@ export default function Hero() {
         {/* CTA */}
         <div className="hidden md:flex items-center gap-4">
           <button 
-            onClick={() => openAppModal('brand')}
+            onClick={() => openAppModal('user')}
             className="cursor-pointer rounded-full bg-slate-900 px-5 py-2.5 text-sm text-white font-medium hover:bg-slate-800 hover:shadow-lg hover:shadow-violet-900/20 transition-all duration-300"
           >
-            Start Selling
+            Early Access
           </button>
         </div>
 
         {/* Mobile Menu Icon */}
-        <button className="md:hidden p-2 text-slate-900">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-          </svg>
+        <button 
+          className="md:hidden p-2 text-slate-900 z-50"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          {mobileMenuOpen ? (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+            </svg>
+          )}
         </button>
+
+        {/* Mobile Menu Overlay */}
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center space-y-8 animate-in slide-in-from-top-10 fade-in duration-200">
+             <div className="flex flex-col items-center gap-6 text-lg font-medium text-slate-900">
+              {[
+                  { name: 'How it works', href: '#how-it-works' },
+                  { name: 'For Brands', href: '#for-brands' },
+                  { name: 'About', href: '#about' }
+                ].map((item) => (
+                  <Link 
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="hover:text-violet-600 transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+            </div>
+            <button 
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openAppModal('user');
+              }}
+              className="rounded-full bg-slate-900 px-8 py-3 text-white font-medium hover:bg-slate-800 transition-all"
+            >
+              Early Access
+            </button>
+          </div>
+        )}
       </nav>
 
       {/* TEXT CONTENT */}
-      <div className="relative z-10 flex flex-col items-center text-center pt-32 px-6 pb-24">
+      <div className="relative z-10 flex flex-col items-center text-center pt-20 md:pt-32 px-6 pb-12 md:pb-24">
         
         {/* Badge */}
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/50 px-3 py-1 backdrop-blur-sm transition-transform hover:scale-105 cursor-default">

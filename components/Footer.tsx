@@ -40,8 +40,8 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-slate-900 mb-6">Contact</h4>
             <ul className="space-y-4 text-slate-600">
-              <li><a href="mailto:hello@goshrin.com" className="hover:text-violet-600 transition-colors">hello@goshrin.com</a></li>
-              <li><a href="mailto:support@goshrin.com" className="hover:text-violet-600 transition-colors">support@goshrin.com</a></li>
+              <li><a href="mailto:hello@goshrin.com" className="hover:text-violet-600 transition-colors">Partner as Brand</a></li>
+              <li><a href="mailto:support@goshrin.com" className="hover:text-violet-600 transition-colors">Support</a></li>
             </ul>
           </div>
 

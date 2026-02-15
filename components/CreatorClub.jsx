@@ -6,7 +6,7 @@ export default function CreatorClub() {
   const [openModal, setOpenModal] = useState(false);
 
   return (
-    <section id="creator-club" className="relative bg-slate-900 py-32 px-6 overflow-hidden text-white">
+    <section id="creator-club" className="relative bg-slate-900 py-16 md:py-32 px-6 overflow-hidden text-white">
       {/* Dynamic Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-[1000px] h-[1000px] bg-purple-600/20 rounded-full blur-3xl -translate-y-1/2 pointer-events-none mix-blend-screen" />

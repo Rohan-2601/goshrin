@@ -54,7 +54,7 @@ export default function Features() {
   ];
 
   return (
-    <section id="how-it-works" className="relative bg-slate-50 py-32 px-6 overflow-hidden">
+    <section id="how-it-works" className="relative bg-slate-50 py-1 md:py-32 px-6 overflow-hidden">
       
       {/* Background Gradients */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>

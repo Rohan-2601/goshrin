@@ -2,7 +2,7 @@
 
 export default function Comparison() {
   return (
-    <section id="about" className="relative bg-slate-50 py-32 px-6 overflow-hidden">
+    <section id="about" className="relative bg-slate-50 py-16 md:py-32 px-6 overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-violet-100/40 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[100px] translate-y-1/3 translate-x-1/3 pointer-events-none" />
@@ -10,7 +10,7 @@ export default function Comparison() {
       <div className="mx-auto max-w-7xl relative z-10">
         
         {/* Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
           <div className="inline-flex items-center gap-2 rounded-full border border-violet-100 bg-white px-3 py-1 mb-6 shadow-sm">
             <span className="flex h-2 w-2 rounded-full bg-violet-500 animate-pulse"></span>
             <span className="text-xs font-semibold text-violet-700 uppercase tracking-wide">The Difference</span>
@@ -25,8 +25,9 @@ export default function Comparison() {
           </p>
         </div>
 
-        {/* Comparison Card */}
-        <div className="relative rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-slate-200/50 overflow-hidden">
+        {/* Comparison Card (Scrollable Container) */}
+        <div className="overflow-x-auto pb-4 -mx-6 px-6 md:mx-0 md:px-0 md:pb-0">
+          <div className="relative rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-slate-200/50 overflow-hidden min-w-[700px]">
           
           {/* Header Row */}
           <div className="grid grid-cols-12 border-b border-slate-100 bg-slate-50/50 backdrop-blur-sm">
@@ -86,6 +87,7 @@ export default function Comparison() {
             />
 
           </div>
+        </div>
         </div>
 
         {/* Closing text */}

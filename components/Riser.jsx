@@ -6,7 +6,7 @@ export default function Riser() {
   const [openModal, setOpenModal] = useState(false);
 
   return (
-    <section id="riser-program" className="relative bg-white py-32 px-6 overflow-hidden">
+    <section id="riser-program" className="relative bg-white py-16 md:py-32 px-6 overflow-hidden">
       {/* Decorative Background */}
       <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-orange-50/40 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/4 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-amber-50/40 rounded-full blur-3xl translate-y-1/3 translate-x-1/4 pointer-events-none" />

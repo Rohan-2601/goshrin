@@ -49,7 +49,7 @@ export default function BrandStore() {
   ];
 
   return (
-    <section id="for-brands" className="relative bg-slate-50 py-32 px-6 overflow-hidden">
+    <section id="for-brands" className="relative bg-slate-50 py-16 md:py-32 px-6 overflow-hidden">
       {/* Decorative Background Blobs */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-violet-50/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3 pointer-events-none" />
@@ -161,11 +161,12 @@ export default function BrandStore() {
 
         </div>
 
-        {/* Bottom Supporting Line */}
-        <div className="mt-20 text-center">
-          <p className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-slate-50 border border-slate-100 text-slate-600">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            Customers always know <span className="font-semibold text-slate-900">who sold it</span> and <span className="font-semibold text-slate-900">who is accountable</span>.
+        <div className="mt-12 md:mt-20 text-center px-4">
+          <p className="inline-flex flex-col md:flex-row items-center gap-2 md:gap-3 px-6 py-4 md:py-3 rounded-2xl md:rounded-full bg-slate-50 border border-slate-100 text-slate-600 text-sm md:text-base leading-relaxed">
+            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
+            <span>
+              Customers always know <span className="font-semibold text-slate-900">who sold it</span> and <span className="font-semibold text-slate-900">who is accountable</span>.
+            </span>
           </p>
         </div>
 

@@ -72,41 +72,41 @@ export default function Hero() {
             </svg>
           )}
         </button>
-
-        {/* Mobile Menu Overlay */}
-        {mobileMenuOpen && (
-          <div className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center space-y-8 animate-in slide-in-from-top-10 fade-in duration-200">
-             <div className="flex flex-col items-center gap-6 text-lg font-medium text-slate-900">
-              {[
-                  { name: 'How it works', href: '#how-it-works' },
-                  { name: 'For Brands', href: '#for-brands' },
-                  { name: 'About', href: '#about' }
-                ].map((item) => (
-                  <Link 
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="hover:text-violet-600 transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-            </div>
-            <button 
-              onClick={() => {
-                setMobileMenuOpen(false);
-                openAppModal('user');
-              }}
-              className="rounded-full bg-slate-900 px-8 py-3 text-white font-medium hover:bg-slate-800 transition-all"
-            >
-              Early Access
-            </button>
-          </div>
-        )}
       </nav>
 
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center space-y-8 animate-in slide-in-from-top-10 fade-in duration-200">
+            <div className="flex flex-col items-center gap-6 text-lg font-medium text-slate-900">
+            {[
+                { name: 'How it works', href: '#how-it-works' },
+                { name: 'For Brands', href: '#for-brands' },
+                { name: 'About', href: '#about' }
+              ].map((item) => (
+                <Link 
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="hover:text-violet-600 transition-colors"
+                >
+                  {item.name}
+                </Link>
+              ))}
+          </div>
+          <button 
+            onClick={() => {
+              setMobileMenuOpen(false);
+              openAppModal('user');
+            }}
+            className="rounded-full bg-slate-900 px-8 py-3 text-white font-medium hover:bg-slate-800 transition-all"
+          >
+            Early Access
+          </button>
+        </div>
+      )}
+
       {/* TEXT CONTENT */}
-      <div className="relative z-10 flex flex-col items-center text-center pt-20 md:pt-32 px-6 pb-12 md:pb-24">
+      <div className="relative z-10 flex flex-col items-center text-center pt-32 md:pt-32 px-6 pb-12 md:pb-24">
         
         {/* Badge */}
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/50 px-3 py-1 backdrop-blur-sm transition-transform hover:scale-105 cursor-default">
